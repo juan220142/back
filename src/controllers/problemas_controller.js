@@ -27,7 +27,7 @@ Metodos.getFib = (req,res)=>{
     var result = 0;
     var counter=0;
     var array=[]
-    while (result<iter){
+    while (counter<iter){
      array[counter]= y;
         result=x+y;
         x = y;
