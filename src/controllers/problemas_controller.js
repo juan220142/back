@@ -9,7 +9,11 @@ Metodos.getFact = (req,res) =>{
             aux=aux*j
             j=j-1
         }
-   res.status(200).json({status:"good",data:aux}) }
+        res.status(200).json({status:"good",data:aux})}
+        else if(numero == 0){
+            aux=1
+        res.status(200).json({status:"good",data:aux})}
+
     else{
         res.status(404).json({status:"wrong",data:"no se puede realizar el proceso"})
     }
