@@ -61,10 +61,8 @@ Metodos.getTrian = (req,res)=>{
     var base=req.headers['base']
     var Area= (base*altura)/2
     var Perimetro= parseInt(base)+parseInt(lado_i)+parseInt(lado_d)
-    if(Area!= undefined && Perimetro!= undefined){
-        res.status(200).json({status:"good",Area:Area,Perimetro:Perimetro})
-    }else if(lado_i>altura || lado_d>altura){
-        res.status(404).json({status:"good",data:"error en los datos"})
+    if(Area!= undefined && Perimetro!= undefined   ) {
+        res.status(200).json({status: "good", Area: Area, Perimetro: Perimetro})
     }
     else{
         res.status(404).json({status:"good",data:"error en los datos"})
