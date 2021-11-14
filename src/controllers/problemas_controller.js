@@ -1,12 +1,12 @@
 const Metodos={}
-
+const BigInteger = require('biginteger').BigInteger;
 Metodos.getFact = (req,res) =>{
     var numero=req.headers['dato']
-    var aux=numero
+   var  aux = (numero)
     if(numero!= undefined && numero>0) {
         var j = numero - 1
         while(j>0){
-            aux=aux*j
+            aux=(aux*j)
             j=j-1
         }
         res.status(200).json({status:"good",data:aux})}
@@ -39,7 +39,7 @@ Metodos.getFib = (req,res)=>{
         res.status(200).json({status:"good",arra:array})
 
     }else {
-        res.status(404).json({status:"wrong",data:"no es posible hacer esto"})
+        res.status(404).json({status:"wrong",data:"no se puede realizar el proceso"})
     }
 }
 
@@ -50,7 +50,7 @@ Metodos.getCirc = (req,res)=>{
     if(Area!= undefined && Perimetro!= undefined){
         res.status(200).json({status:"good",Area:Area,Perimetro:Perimetro})
     }else{
-        res.status(404).json({status:"wrong",data:"datos erroneos"})
+        res.status(404).json({status:"wrong",data:"no se puede realizar el proceso"})
     }
 
 }
@@ -61,11 +61,15 @@ Metodos.getTrian = (req,res)=>{
 
     var Area= Math.sqrt(((parseInt(lado_d)+parseInt(lado_i)+parseInt(base))/2)*(((parseInt(lado_d)+parseInt(lado_i)+parseInt(base))/2)-parseInt(lado_d))*(((parseInt(lado_d)+parseInt(lado_i)+parseInt(base))/2)-parseInt(lado_i))*(((parseInt(lado_d)+parseInt(lado_i)+parseInt(base))/2)-parseInt(base)))
     var Perimetro= parseInt(base)+parseInt(lado_i)+parseInt(lado_d)
-    if(Area!= undefined && Perimetro!= undefined   ) {
+    if(Area!= undefined && Perimetro!= undefined && (lado_i+lado_d )> base  ) {
         res.status(200).json({status: "good", Area: Area, Perimetro: Perimetro})
     }
+    else if((lado_i+lado_d) <base){
+        res.status(404).json({status:"wrong",data:"no se puede realizar el proceso"})
+    }
     else{
-        res.status(404).json({status:"good",data:"error en los datos"})
+        res.status(404).json({status:"wrong",data:"no se puede realizar el proceso"})
+
     }
 
 
@@ -79,7 +83,7 @@ Metodos.getRect = (req,res)=>{
     if(Area!= undefined && Perimetro!= undefined){
         res.status(200).json({status:"good",Area:Area,Perimetro:Perimetro})
     }else{
-        res.status(404).json({status:"good",data:"error en los datos"})
+        res.status(404).json({status:"wrong",data:"no se puede realizar el proceso"})
     }
 
 }
