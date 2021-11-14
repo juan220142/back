@@ -4,8 +4,8 @@ Metodos.getFact = (req,res) =>{
     var numero=req.headers['dato']
    var  aux = (numero)
     if(numero!= undefined && numero>0) {
-        var j = numero - 1
-        while(j>0){
+        var j = numero-1
+        while(j>1){
             aux=(aux*j)
             j=j-1
         }
