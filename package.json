@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha 'pruebas_unitarias/test.js' --exit",
+    "test-f": "mocha 'pruebas_unitarias/test-front.js' --exit",
     "dev": "nodemon src/index.js",
     "start": "nodemon src/index.js"
   },
@@ -21,9 +22,9 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.15",
     "selenium-webdriver": "^4.0.0"
-
   },
   "devDependencies": {
+    "chromedriver": "^95.0.0",
     "supertest": "^6.1.6"
   },
   "browserslist": {
@@ -38,5 +39,4 @@
       "last 1 safari version"
     ]
   }
-
 }

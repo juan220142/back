@@ -39,7 +39,7 @@ describe("GET fibonacci", ()=> {
 
 
     })
-    it("dato no numerico", (done) => {
+    it("sin dato", (done) => {
         request(app)
             .get("/api/fibo")
             .set("accept", "application/json")
@@ -50,7 +50,7 @@ describe("GET fibonacci", ()=> {
 
     })
 
-}).timeout(20000)
+}).timeout(15000)
 describe("GET factorial",()=>
     {
     it("fact caso1",(done )=> {
@@ -116,7 +116,7 @@ describe("GET factorial",()=>
                 .expect(404, done);
         })
 
-}).timeout(20000)
+}).timeout(15000)
 // prueba rectangulo
 describe("GET rect",()=>
 {
@@ -189,7 +189,7 @@ describe("GET rect",()=>
 
         }
     )
-}).timeout(20000)
+}).timeout(15000)
 // prueba circulo
 describe("GET circ",()=>
 {
@@ -257,7 +257,7 @@ describe("GET circ",()=>
 
         }
     )
-}).timeout(20000)
+}).timeout(15000)
 // prueba triangulo
 describe("GET triangulo",()=>
 {
@@ -335,7 +335,7 @@ describe("GET triangulo",()=>
 
         }
     )
-}).timeout(20000)
+}).timeout(15000)
 
 
 

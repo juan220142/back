@@ -1,3 +1,4 @@
+require('chromedriver')
 const { Builder, By, Key, until } = require('selenium-webdriver')
 const assert = require('assert')
 
@@ -24,7 +25,7 @@ describe('circulo-bueno', function() {
         await driver.findElement(By.css("button:nth-child(1)")).click()
         {
             const element = await driver.findElement(By.css("button:nth-child(1)"))
-            await driver.actions({ bridge: true }).moveToElement(element).perform()
+            //await driver.actions({ bridge: true }).moveToElement(element).perform()
         }
     })
 })
@@ -77,7 +78,7 @@ describe('factorial-bien', function() {
         await driver.findElement(By.css("button:nth-child(1)")).click()
         {
             const element = await driver.findElement(By.css("button:nth-child(1)"))
-            await driver.actions({ bridge: true }).moveToElement(element).perform()
+          //  await driver.actions({ bridge: true }).moveToElement(element).perform()
         }
     })
 })
@@ -208,7 +209,7 @@ describe('fib-negativo', function() {
         await driver.findElement(By.css("button:nth-child(1)")).click()
         {
             const element = await driver.findElement(By.css("button:nth-child(1)"))
-            await driver.actions({ bridge: true }).moveToElement(element).perform()
+           // await driver.actions({ bridge: true }).moveToElement(element).perform()
         }
     })
 })
@@ -232,7 +233,7 @@ describe('rectangulo-bueno', function() {
         await driver.findElement(By.name("insta")).click()
         await driver.findElement(By.name("insta")).sendKeys("7")
         await driver.findElement(By.css("button:nth-child(3)")).click()
-        await driver.findElement(By.css(".titleHolder")).click()
+
     })
 })
 describe('rectangulo-negativo', function() {

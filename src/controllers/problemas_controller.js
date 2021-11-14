@@ -34,7 +34,7 @@ Metodos.getFib = (req,res)=>{
         counter++;
 
     }
-    if(result!= undefined && !isNaN(iter) && iter>=0){
+    if(result!= undefined && !isNaN(iter) && iter>=0 ){
         res.status(200).json({status:"good",arra:array})
 
     }else {
