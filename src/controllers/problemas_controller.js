@@ -14,7 +14,7 @@ Metodos.getFact = (req,res) =>{
         res.status(200).json({status:"good",data:aux})}
 
     else{
-        res.status(404).json({status:"wrong",data:"no se puede realizar el proceso"})
+        res.status(404).json({status:"wrong",data:"no se puede realizar el proceso,verifica los datos ingresados"})
     }
 }
 
@@ -38,7 +38,7 @@ Metodos.getFib = (req,res)=>{
         res.status(200).json({status:"good",arra:array})
 
     }else {
-        res.status(404).json({status:"wrong",data:"no se puede realizar el proceso"})
+        res.status(404).json({status:"wrong",data:"no se puede realizar el proceso,verifica los datos ingresados"})
     }
 }
 
@@ -49,7 +49,7 @@ Metodos.getCirc = (req,res)=>{
     if(Area!== undefined && Perimetro!== undefined && !isNaN(radio) && radio>0){
         res.status(200).json({status:"good",Area:Area,Perimetro:Perimetro})
     }else{
-        res.status(404).json({status:"wrong",data:"no se puede realizar el proceso"})
+        res.status(404).json({status:"wrong",data:"no se puede realizar el proceso,verifica los datos ingresados"})
     }
 
 }
@@ -67,10 +67,10 @@ Metodos.getTrian = (req,res)=>{
         res.status(200).json({status: "good", Area: Area, Perimetro: Perimetro})
     }
     else if((lado_i+lado_d) <base){
-        res.status(404).json({status:"wrong",data:"no se puede realizar el proceso"})
+        res.status(404).json({status:"wrong",data:"no se puede realizar el proceso,verifica los datos ingresados"})
     }
     else{
-        res.status(404).json({status:"wrong",data:"no se puede realizar el proceso"})
+        res.status(404).json({status:"wrong",data:"no se puede realizar el proceso,verifica los datos ingresados"})
 
     }
 
@@ -85,7 +85,7 @@ Metodos.getRect = (req,res)=>{
     if(Area!= undefined && Perimetro!= undefined && !isNaN(altura) && !isNaN(base) && base>0 && altura>0){
         res.status(200).json({status:"good",Area:Area,Perimetro:Perimetro})
     }else{
-        res.status(404).json({status:"wrong",data:"no se puede realizar el proceso"})
+        res.status(404).json({status:"wrong",data:"no se puede realizar el proceso,verifica los datos ingresados"})
     }
 
 }

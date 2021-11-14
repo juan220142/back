@@ -22,7 +22,7 @@ describe("GET fibonacci", ()=> {
                  .set("accept", "application/json")
                  .set("numero", numero)
                  .expect("Content-Type", /json/)
-                 .expect({status: "wrong", data: "no se puede realizar el proceso"})
+                 .expect({status: "wrong", data: "no se puede realizar el proceso,verifica los datos ingresados"})
                  .expect(404, done)
 
 
@@ -34,7 +34,7 @@ describe("GET fibonacci", ()=> {
             .set("accept", "application/json")
             .set("numero", numero)
             .expect("Content-Type", /json/)
-            .expect({status: "wrong", data: "no se puede realizar el proceso"})
+            .expect({status: "wrong", data: "no se puede realizar el proceso,verifica los datos ingresados"})
             .expect(404, done)
 
 
@@ -44,7 +44,7 @@ describe("GET fibonacci", ()=> {
             .get("/api/fibo")
             .set("accept", "application/json")
             .expect("Content-Type", /json/)
-            .expect({status: "wrong", data: "no se puede realizar el proceso"})
+            .expect({status: "wrong", data: "no se puede realizar el proceso,verifica los datos ingresados"})
             .expect(404, done)
 
 
@@ -72,7 +72,7 @@ describe("GET factorial",()=>
                     .set("Accept", "application/json")
                     .set("dato", dato)
                     .expect("Content-Type", /json/)
-                    .expect({status: "wrong", data: "no se puede realizar el proceso"})
+                    .expect({status: "wrong", data: "no se puede realizar el proceso,verifica los datos ingresados"})
                     .expect(404, done);
             })
         it("dato no numerico",(done)=>{
@@ -82,7 +82,7 @@ describe("GET factorial",()=>
                 .set("Accept", "application/json")
                 .set("dato", dato)
                 .expect("Content-Type", /json/)
-                .expect({status: "wrong", data: "no se puede realizar el proceso"})
+                .expect({status: "wrong", data: "no se puede realizar el proceso,verifica los datos ingresados"})
                 .expect(404, done);
         })
 
@@ -112,7 +112,7 @@ describe("GET factorial",()=>
                 .get('/api/fact')
                 .set("Accept", "application/json")
                 .expect("Content-Type", /json/)
-                .expect({status: "wrong", data: "no se puede realizar el proceso"})
+                .expect({status: "wrong", data: "no se puede realizar el proceso,verifica los datos ingresados"})
                 .expect(404, done);
         })
 
@@ -148,7 +148,7 @@ describe("GET rect",()=>
                 .set("base",base)
                 .set("altura",altura)
                 .expect("Content-Type", /json/)
-                .expect({status:"wrong",data:"no se puede realizar el proceso"})
+                .expect({status:"wrong",data:"no se puede realizar el proceso,verifica los datos ingresados"})
                 .expect(404,done)
 
 
@@ -163,7 +163,7 @@ describe("GET rect",()=>
                 .get("/api/rect")
                 .set("accept","application/json")
                 .expect("Content-Type", /json/)
-                .expect({status:"wrong",data:"no se puede realizar el proceso"})
+                .expect({status:"wrong",data:"no se puede realizar el proceso,verifica los datos ingresados"})
                 .expect(404,done)
 
 
@@ -181,7 +181,7 @@ describe("GET rect",()=>
                 .set("base",base)
                 .set("altura",altura)
                 .expect("Content-Type", /json/)
-                .expect({status:"wrong",data:"no se puede realizar el proceso"})
+                .expect({status:"wrong",data:"no se puede realizar el proceso,verifica los datos ingresados"})
                 .expect(404,done)
 
 
@@ -217,7 +217,7 @@ describe("GET circ",()=>
                 .set("accept","application/json")
                 .set("radio",radio)
                 .expect("Content-Type", /json/)
-                .expect({status:"wrong",data:"no se puede realizar el proceso"})
+                .expect({status:"wrong",data:"no se puede realizar el proceso,verifica los datos ingresados"})
                 .expect(404,done)
 
 
@@ -233,7 +233,7 @@ describe("GET circ",()=>
                 .set("accept","application/json")
                 .set("radio",radio)
                 .expect("Content-Type", /json/)
-                .expect({status:"wrong",data:"no se puede realizar el proceso"})
+                .expect({status:"wrong",data:"no se puede realizar el proceso,verifica los datos ingresados"})
                 .expect(404,done)
 
 
@@ -249,7 +249,7 @@ describe("GET circ",()=>
                 .set("accept","application/json")
                 .set("radio",radio)
                 .expect("Content-Type", /json/)
-                .expect({status:"wrong",data:"no se puede realizar el proceso"})
+                .expect({status:"wrong",data:"no se puede realizar el proceso,verifica los datos ingresados"})
                 .expect(404,done)
 
 
@@ -293,7 +293,7 @@ describe("GET triangulo",()=>
                 .set("lado_derecho",lado_d)
                 .set("lado_izquierdo",lado_i)
                 .expect("Content-Type", /json/)
-                .expect({status:"wrong",data:"no se puede realizar el proceso"})
+                .expect({status:"wrong",data:"no se puede realizar el proceso,verifica los datos ingresados"})
                 .expect(404,done)
 
 
@@ -307,7 +307,7 @@ describe("GET triangulo",()=>
                 .get("/api/trian")
                 .set("accept","application/json")
                 .expect("Content-Type", /json/)
-                .expect({status:"wrong",data:"no se puede realizar el proceso"})
+                .expect({status:"wrong",data:"no se puede realizar el proceso,verifica los datos ingresados"})
                 .expect(404,done)
 
 
@@ -327,7 +327,7 @@ describe("GET triangulo",()=>
                 .set("lado_derecho",lado_d)
                 .set("lado_izquierdo",lado_i)
                 .expect("Content-Type", /json/)
-                .expect({status:"wrong",data:"no se puede realizar el proceso"})
+                .expect({status:"wrong",data:"no se puede realizar el proceso,verifica los datos ingresados"})
                 .expect(404,done)
 
 
