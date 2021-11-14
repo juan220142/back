@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test --exit",
+    "test": "mocha 'pruebas_unitarias/test.js' --exit",
     "dev": "nodemon src/index.js",
     "start": "nodemon src/index.js"
   },
@@ -20,5 +20,10 @@
     "mocha": "^9.1.3",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.15"
+
+  },
+  "devDependencies": {
+    "supertest": "^6.1.6"
   }
+
 }

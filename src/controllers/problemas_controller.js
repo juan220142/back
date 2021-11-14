@@ -3,14 +3,14 @@ const BigInteger = require('biginteger').BigInteger;
 Metodos.getFact = (req,res) =>{
     var numero=req.headers['dato']
    var  aux = (numero)
-    if(numero!= undefined && numero>0) {
+    if(numero!= undefined && numero>0 && !isNaN(numero)) {
         var j = numero-1
         while(j>1){
             aux=(aux*j)
             j=j-1
         }
         res.status(200).json({status:"good",data:aux})}
-        else if(numero == 0){
+        else if(numero == 0 && !isNaN(numero)){
             aux=1
         res.status(200).json({status:"good",data:aux})}
 
@@ -35,7 +35,7 @@ Metodos.getFib = (req,res)=>{
         counter++;
 
     }
-    if(result!= undefined){
+    if(result!= undefined && !isNaN(iter) && iter>0){
         res.status(200).json({status:"good",arra:array})
 
     }else {
@@ -47,7 +47,7 @@ Metodos.getCirc = (req,res)=>{
     var radio=req.headers['radio']
     var Area= Math.PI*(Math.pow(radio,2))
     var Perimetro= 2*Math.PI*radio
-    if(Area!= undefined && Perimetro!= undefined){
+    if(Area!== undefined && Perimetro!== undefined && !isNaN(radio) && radio>0){
         res.status(200).json({status:"good",Area:Area,Perimetro:Perimetro})
     }else{
         res.status(404).json({status:"wrong",data:"no se puede realizar el proceso"})
@@ -64,7 +64,7 @@ Metodos.getTrian = (req,res)=>{
 
     var Area= Math.sqrt((((lado_d+lado_i+base)/2)*(((lado_d+lado_i+base)/2)-lado_d)*(((lado_d+lado_i+base)/2)-lado_i)*(((lado_d+lado_i+base)/2)-base)))
     var Perimetro= base+lado_i+lado_d
-    if(Area!= undefined && Perimetro!= undefined && lado_i+lado_d > base ) {
+    if(Area!= undefined && Perimetro!= undefined && lado_i+lado_d > base && !isNaN(base) ) {
         res.status(200).json({status: "good", Area: Area, Perimetro: Perimetro})
     }
     else if((lado_i+lado_d) <base){
@@ -83,7 +83,7 @@ Metodos.getRect = (req,res)=>{
     var base = req.headers['base']
     var Perimetro= 2*altura+2*base
     var Area = base*altura
-    if(Area!= undefined && Perimetro!= undefined){
+    if(Area!= undefined && Perimetro!= undefined && !isNaN(altura) && !isNaN(base) && base>0 && altura>0){
         res.status(200).json({status:"good",Area:Area,Perimetro:Perimetro})
     }else{
         res.status(404).json({status:"wrong",data:"no se puede realizar el proceso"})

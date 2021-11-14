@@ -1,15 +1,17 @@
 const request= require("supertest");
-const app= require("./src/index");
+const app= require('../src/index');
 // testeo prueba fibonnacci
 describe("GET fibonacci", ()=> {
+
+
     it(" numero valido", (done) => {
         var numero = 5;
         request(app)
             .get("/api/fibo")
-            .get("accept", "application/json")
+            .set("accept", "application/json")
             .set("numero", numero)
             .expect("Content-Type", /json/)
-            .expect({status: "good", arra: [1, 1, 2, 3, 5]})
+            .expect({status: "good", arra:[1, 1, 2, 3, 5]})
             .expect(200, done)
 
     })
@@ -17,7 +19,7 @@ describe("GET fibonacci", ()=> {
              var numero = -1;
              request(app)
                  .get("/api/fibo")
-                 .get("accept", "application/json")
+                 .set("accept", "application/json")
                  .set("numero", numero)
                  .expect("Content-Type", /json/)
                  .expect({status: "wrong", data: "no se puede realizar el proceso"})
@@ -29,7 +31,7 @@ describe("GET fibonacci", ()=> {
         var numero = "j";
         request(app)
             .get("/api/fibo")
-            .get("accept", "application/json")
+            .set("accept", "application/json")
             .set("numero", numero)
             .expect("Content-Type", /json/)
             .expect({status: "wrong", data: "no se puede realizar el proceso"})
@@ -42,12 +44,12 @@ describe("GET fibonacci", ()=> {
 }).timeout(20000)
 describe("GET factorial",()=>
     {
-    it("json 200 fact caso1",(done )=> {
+    it("fact caso1",(done )=> {
 
         var dato = 5;
         request(app)
             .get("/api/fact")
-            .get("accept", "application/json")
+            .set("accept", "application/json")
             .set("dato", dato)
             .expect("Content-Type", /json/)
             .expect({status: "good", data: 120})
@@ -61,7 +63,7 @@ describe("GET factorial",()=>
                     .set("Accept", "application/json")
                     .set("dato", dato)
                     .expect("Content-Type", /json/)
-                    .expect({status: "wrong", data: "no se puede realizar el proceso "})
+                    .expect({status: "wrong", data: "no se puede realizar el proceso"})
                     .expect(404, done);
             })
         it("dato no numerico",(done)=>{
@@ -71,7 +73,7 @@ describe("GET factorial",()=>
                 .set("Accept", "application/json")
                 .set("dato", dato)
                 .expect("Content-Type", /json/)
-                .expect({status: "wrong", data: "no se puede realizar el proceso "})
+                .expect({status: "wrong", data: "no se puede realizar el proceso"})
                 .expect(404, done);
         })
 
@@ -79,12 +81,12 @@ describe("GET factorial",()=>
 
 
 
-    it("json 200 fact caso2",(done )=>{
+    it("caso2 0",(done )=>{
 
             var dato = 0;
             request(app)
                 .get("/api/fact")
-                .get("accept","aplications/json")
+                .set("accept","application/json")
                 .set("dato",dato)
                 .expect("Content-Type", /json/)
                 .expect({status:"good",data:1})
@@ -105,7 +107,7 @@ describe("GET rect",()=>
             var altura = 3;
             request(app)
                 .get("/api/rect")
-                .get("accept","aplications/json")
+                .set("accept","application/json")
                 .set("base",base)
                 .set("altura",altura)
                 .expect("Content-Type", /json/)
@@ -123,7 +125,7 @@ describe("GET rect",()=>
             var altura = -3;
             request(app)
                 .get("/api/rect")
-                .get("accept","aplications/json")
+                .set("accept","application/json")
                 .set("base",base)
                 .set("altura",altura)
                 .expect("Content-Type", /json/)
@@ -141,7 +143,7 @@ describe("GET rect",()=>
             var altura = "j";
             request(app)
                 .get("/api/rect")
-                .get("accept","aplications/json")
+                .set("accept","application/json")
                 .set("base",base)
                 .set("altura",altura)
                 .expect("Content-Type", /json/)
@@ -162,7 +164,7 @@ describe("GET circ",()=>
             var radio = 3;
             request(app)
                 .get("/api/circ")
-                .get("accept","aplications/json")
+                .set("accept","application/json")
                 .set("radio",radio)
                 .expect("Content-Type", /json/)
                 .expect({status:"good",Area:28.274333882308138,Perimetro:18.84955592153876})
@@ -178,7 +180,7 @@ describe("GET circ",()=>
             var radio = -3;
             request(app)
                 .get("/api/circ")
-                .get("accept","aplications/json")
+                .set("accept","application/json")
                 .set("radio",radio)
                 .expect("Content-Type", /json/)
                 .expect({status:"wrong",data:"no se puede realizar el proceso"})
@@ -194,7 +196,7 @@ describe("GET circ",()=>
             var radio = "j";
             request(app)
                 .get("/api/circ")
-                .get("accept","aplications/json")
+                .set("accept","application/json")
                 .set("radio",radio)
                 .expect("Content-Type", /json/)
                 .expect({status:"wrong",data:"no se puede realizar el proceso"})
@@ -212,16 +214,16 @@ describe("GET triangulo",()=>
     it("datos correctos ",(done )=>{
 
             var base = 5;
-            var lado_i = 4;
+            var lado_i = 3;
             var lado_d = 4;
             request(app)
-                .get("/api/rect")
-                .get("accept","aplications/json")
+                .get("/api/trian")
+                .set("accept","application/json")
                 .set("base",base)
                 .set("lado_derecho",lado_d)
                 .set("lado_izquierdo",lado_i)
                 .expect("Content-Type", /json/)
-                .expect({status:"good",Area:7.806247497997997,Perimetro:13})
+                .expect({status:"good",Area:6, Perimetro:12})
                 .expect(200,done)
 
 
@@ -235,8 +237,8 @@ describe("GET triangulo",()=>
             var lado_i = -4;
             var lado_d = -4;
             request(app)
-                .get("/api/rect")
-                .get("accept","aplications/json")
+                .get("/api/trian")
+                .set("accept","application/json")
                 .set("base",base)
                 .set("lado_derecho",lado_d)
                 .set("lado_izquierdo",lado_i)
@@ -255,8 +257,8 @@ describe("GET triangulo",()=>
             var lado_i = "f";
             var lado_d = "c";
             request(app)
-                .get("/api/rect")
-                .get("accept","aplications/json")
+                .get("/api/trian")
+                .set("accept","application/json")
                 .set("base",base)
                 .set("lado_derecho",lado_d)
                 .set("lado_izquierdo",lado_i)
