@@ -63,7 +63,7 @@ Metodos.getTrian = (req,res)=>{
 
     var Area= Math.sqrt((((lado_d+lado_i+base)/2)*(((lado_d+lado_i+base)/2)-lado_d)*(((lado_d+lado_i+base)/2)-lado_i)*(((lado_d+lado_i+base)/2)-base)))
     var Perimetro= base+lado_i+lado_d
-    if(Area!= undefined && Perimetro!= undefined && lado_i+lado_d > base && !isNaN(base) ) {
+    if(Area!= undefined && Perimetro!= undefined && lado_i+lado_d > base && !isNaN(base) && lado_i>0 && lado_d>0 && base>0 ) {
         res.status(200).json({status: "good", Area: Area, Perimetro: Perimetro})
     }
     else if((lado_i+lado_d) <base){
