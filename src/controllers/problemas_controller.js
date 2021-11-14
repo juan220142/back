@@ -8,7 +8,7 @@ Metodos.getFact = (req,res) =>{
             aux=(aux*j)
             j=j-1
         }
-        res.status(200).json({status:"good",data:aux.toExponential(12)})}
+        res.status(200).json({status:"good",data:aux})}
         else if(numero == 0 && !isNaN(numero)){
             aux=1
         res.status(200).json({status:"good",data:aux})}
@@ -27,7 +27,7 @@ Metodos.getFib = (req,res)=>{
     var counter=0;
     var array=[]
     while (counter<iter){
-     array[counter]= y.toExponential(12);
+     array[counter]= y;
         result=x+y;
         x = y;
         y = result;
