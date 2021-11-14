@@ -106,7 +106,7 @@ describe("GET factorial",()=>
 
         }
     )
-        it("sin dato",(done)=>{
+        it("sin datos",(done)=>{
 
             request(app)
                 .get('/api/fact')
