@@ -1,5 +1,4 @@
 const Metodos={}
-const BigInteger = require('biginteger').BigInteger;
 Metodos.getFact = (req,res) =>{
     var numero=req.headers['dato']
    var  aux = (numero)
