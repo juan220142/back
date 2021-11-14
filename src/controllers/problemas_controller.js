@@ -55,11 +55,11 @@ Metodos.getCirc = (req,res)=>{
 
 }
 Metodos.getTrian = (req,res)=>{
-    var altura=req.headers['altura']
     var lado_i=req.headers['lado_izquierdo']
     var lado_d=req.headers['lado_derecho']
     var base=req.headers['base']
-    var Area= (base*altura)/2
+
+    var Area= Math.sqrt(((parseInt(lado_d)+parseInt(lado_i)+parseInt(base))/2)*(((parseInt(lado_d)+parseInt(lado_i)+parseInt(base))/2)-parseInt(lado_d))*(((parseInt(lado_d)+parseInt(lado_i)+parseInt(base))/2)-parseInt(lado_i))*(((parseInt(lado_d)+parseInt(lado_i)+parseInt(base))/2)-parseInt(base)))
     var Perimetro= parseInt(base)+parseInt(lado_i)+parseInt(lado_d)
     if(Area!= undefined && Perimetro!= undefined   ) {
         res.status(200).json({status: "good", Area: Area, Perimetro: Perimetro})

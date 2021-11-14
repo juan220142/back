@@ -1,8 +1,8 @@
 const request= require("supertest");
 const app= require("./src/index");
-
+// testeo prueba fibonnacci
 describe("GET fibonacci", ()=>{
-    it ("json 200 fibonacci pasos", (done )=>{
+    it ("json 200 numero valido", (done )=>{
         var numero = 5;
         request(app)
             .get("/api/fibo")
@@ -12,8 +12,12 @@ describe("GET fibonacci", ()=>{
             .expect({status:"good",arra:[1,1,2,3,5]})
             .expect(200,done)
     } )
-}).timeout(20000)
+    it ("numero no valido",(done)=>{
 
+    })
+
+}).timeout(20000)
+// prueba manejo factorial
 describe("GET factorial",()=>
 {
     it("json 200 fact caso1",(done )=>{
@@ -33,7 +37,7 @@ describe("GET factorial",()=>
     }
     )
 }).timeout(20000)
-
+// prueba factoria #2
 describe("GET factorial",()=>
 {
     it("json 200 fact caso2",(done )=>{
@@ -53,7 +57,7 @@ describe("GET factorial",()=>
         }
     )
 }).timeout(20000)
-
+// prueba rectangulo
 describe("GET rect",()=>
 {
     it("json 200 rect ",(done )=>{
@@ -75,7 +79,7 @@ describe("GET rect",()=>
         }
     )
 }).timeout(20000)
-
+// prueba circulo
 describe("GET circ",()=>
 {
     it("json 200 circ ",(done )=>{
@@ -95,19 +99,20 @@ describe("GET circ",()=>
         }
     )
 }).timeout(20000)
+// prueba triangulo
 describe("GET triangulo",()=>
 {
     it("json 200 triangulo ",(done )=>{
 
             var base = 5;
-            var altura = 3;
+
             var lado_i = 4;
             var lado_d = 4;
             request(app)
                 .get("/api/rect")
                 .get("accept","aplications/json")
                 .set("base",base)
-                .set("altura",altura)
+
                 .set("lado_derecho",lado_d)
                 .set("lado_izquierdo",lado_i)
                 .expect("Content-Type", /json/)
