@@ -58,10 +58,13 @@ Metodos.getTrian = (req,res)=>{
     var lado_i=req.headers['lado_izquierdo']
     var lado_d=req.headers['lado_derecho']
     var base=req.headers['base']
+    base=parseInt(base)
+    lado_d = parseInt(lado_d)
+    lado_i = parseInt(lado_i)
 
-    var Area= Math.sqrt(((parseInt(lado_d)+parseInt(lado_i)+parseInt(base))/2)*(((parseInt(lado_d)+parseInt(lado_i)+parseInt(base))/2)-parseInt(lado_d))*(((parseInt(lado_d)+parseInt(lado_i)+parseInt(base))/2)-parseInt(lado_i))*(((parseInt(lado_d)+parseInt(lado_i)+parseInt(base))/2)-parseInt(base)))
-    var Perimetro= parseInt(base)+parseInt(lado_i)+parseInt(lado_d)
-    if(Area!= undefined && Perimetro!= undefined && (lado_i+lado_d )> base  ) {
+    var Area= Math.sqrt((((lado_d+lado_i+base)/2)*(((lado_d+lado_i+base)/2)-lado_d)*(((lado_d+lado_i+base)/2)-lado_i)*(((lado_d+lado_i+base)/2)-base)))
+    var Perimetro= base+lado_i+lado_d
+    if(Area!= undefined && Perimetro!= undefined && lado_i+lado_d > base ) {
         res.status(200).json({status: "good", Area: Area, Perimetro: Perimetro})
     }
     else if((lado_i+lado_d) <base){
