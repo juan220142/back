@@ -2,7 +2,7 @@ const request= require("supertest");
 const app= require("./src/index");
 // testeo prueba fibonnacci
 describe("GET fibonacci", ()=> {
-    it("json 200 numero valido", (done) => {
+    it(" numero valido", (done) => {
         var numero = 5;
         request(app)
             .get("/api/fibo")
