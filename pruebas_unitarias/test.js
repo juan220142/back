@@ -39,7 +39,16 @@ describe("GET fibonacci", ()=> {
 
 
     })
+    it("dato no numerico", (done) => {
+        request(app)
+            .get("/api/fibo")
+            .set("accept", "application/json")
+            .expect("Content-Type", /json/)
+            .expect({status: "wrong", data: "no se puede realizar el proceso"})
+            .expect(404, done)
 
+
+    })
 
 }).timeout(20000)
 describe("GET factorial",()=>
@@ -97,6 +106,16 @@ describe("GET factorial",()=>
 
         }
     )
+        it("sin dato",(done)=>{
+
+            request(app)
+                .get('/api/fact')
+                .set("Accept", "application/json")
+                .expect("Content-Type", /json/)
+                .expect({status: "wrong", data: "no se puede realizar el proceso"})
+                .expect(404, done);
+        })
+
 }).timeout(20000)
 // prueba rectangulo
 describe("GET rect",()=>
@@ -128,6 +147,21 @@ describe("GET rect",()=>
                 .set("accept","application/json")
                 .set("base",base)
                 .set("altura",altura)
+                .expect("Content-Type", /json/)
+                .expect({status:"wrong",data:"no se puede realizar el proceso"})
+                .expect(404,done)
+
+
+
+
+        }
+    )
+    it("sin dato ",(done )=>{
+
+
+            request(app)
+                .get("/api/rect")
+                .set("accept","application/json")
                 .expect("Content-Type", /json/)
                 .expect({status:"wrong",data:"no se puede realizar el proceso"})
                 .expect(404,done)
@@ -176,6 +210,22 @@ describe("GET circ",()=>
         }
     )
     it("dato negativo ",(done )=>{
+
+            var radio = -3;
+            request(app)
+                .get("/api/circ")
+                .set("accept","application/json")
+                .set("radio",radio)
+                .expect("Content-Type", /json/)
+                .expect({status:"wrong",data:"no se puede realizar el proceso"})
+                .expect(404,done)
+
+
+
+
+        }
+    )
+    it(" sin dato ",(done )=>{
 
             var radio = -3;
             request(app)
@@ -242,6 +292,20 @@ describe("GET triangulo",()=>
                 .set("base",base)
                 .set("lado_derecho",lado_d)
                 .set("lado_izquierdo",lado_i)
+                .expect("Content-Type", /json/)
+                .expect({status:"wrong",data:"no se puede realizar el proceso"})
+                .expect(404,done)
+
+
+
+
+        }
+    )
+    it("sin dato ",(done )=>{
+
+            request(app)
+                .get("/api/trian")
+                .set("accept","application/json")
                 .expect("Content-Type", /json/)
                 .expect({status:"wrong",data:"no se puede realizar el proceso"})
                 .expect(404,done)
