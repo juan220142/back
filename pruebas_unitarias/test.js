@@ -623,6 +623,27 @@ describe("GET triangulo",()=>
 
         }
     )
+    it("datos no cumplen teorema ",(done )=>{
+
+            var base = 20;
+            var lado_i = 3;
+            var lado_d = 2;
+            request(app)
+                .get("/api/trian")
+                .set("accept","application/json")
+                .set("base",base)
+                .set("lado_derecho",lado_d)
+                .set("lado_izquierdo",lado_i)
+                .expect("Content-Type", /json/)
+                .expect({status:"wrong",data:"no se puede realizar el proceso,verifica los datos ingresados"})
+                .expect(404,done)
+
+
+
+
+        }
+    )
+
 }).timeout(15000)
 
 
