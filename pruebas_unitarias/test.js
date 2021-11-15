@@ -27,6 +27,18 @@ describe("GET fibonacci", ()=> {
 
 
     })
+    it("valor cero", (done) => {
+        var numero = 0;
+        request(app)
+            .get("/api/fibo")
+            .set("accept", "application/json")
+            .set("numero", numero)
+            .expect("Content-Type", /json/)
+            .expect({status: "wrong", data: "no se puede realizar el proceso,verifica los datos ingresados"})
+            .expect(404, done)
+
+
+    })
     it("dato no numerico", (done) => {
         var numero = "j";
         request(app)
@@ -156,6 +168,42 @@ describe("GET rect",()=>
 
         }
     )
+    it("valor 0 1 ",(done )=>{
+
+            var base = 0;
+            var altura = 3;
+            request(app)
+                .get("/api/rect")
+                .set("accept","application/json")
+                .set("base",base)
+                .set("altura",altura)
+                .expect("Content-Type", /json/)
+                .expect({status:"wrong",data:"no se puede realizar el proceso,verifica los datos ingresados"})
+                .expect(404,done)
+
+
+
+
+        }
+    )
+    it("valor 0 2 ",(done )=>{
+
+            var base = 3;
+            var altura = 0;
+            request(app)
+                .get("/api/rect")
+                .set("accept","application/json")
+                .set("base",base)
+                .set("altura",altura)
+                .expect("Content-Type", /json/)
+                .expect({status:"wrong",data:"no se puede realizar el proceso,verifica los datos ingresados"})
+                .expect(404,done)
+
+
+
+
+        }
+    )
     it("dato negativo -dato correcto 2 ",(done )=>{
 
             var base = 5;
@@ -192,6 +240,43 @@ describe("GET rect",()=>
 
         }
     )
+    it("dato correcto-dato no numerico ",(done )=>{
+
+            var base = "j";
+            var altura = 3;
+            request(app)
+                .get("/api/rect")
+                .set("accept","application/json")
+                .set("base",base)
+                .set("altura",altura)
+                .expect("Content-Type", /json/)
+                .expect({status:"wrong",data:"no se puede realizar el proceso,verifica los datos ingresados"})
+                .expect(404,done)
+
+
+
+
+        }
+    )
+    it("dato correcto-dato no numerico ",(done )=>{
+
+            var base = 4;
+            var altura = "j";
+            request(app)
+                .get("/api/rect")
+                .set("accept","application/json")
+                .set("base",base)
+                .set("altura",altura)
+                .expect("Content-Type", /json/)
+                .expect({status:"wrong",data:"no se puede realizar el proceso,verifica los datos ingresados"})
+                .expect(404,done)
+
+
+
+
+        }
+    )
+
 
     it("sin dato ",(done )=>{
 
@@ -249,6 +334,22 @@ describe("GET circ",()=>
     it("dato negativo ",(done )=>{
 
             var radio = -3;
+            request(app)
+                .get("/api/circ")
+                .set("accept","application/json")
+                .set("radio",radio)
+                .expect("Content-Type", /json/)
+                .expect({status:"wrong",data:"no se puede realizar el proceso,verifica los datos ingresados"})
+                .expect(404,done)
+
+
+
+
+        }
+    )
+    it("valor 0 ",(done )=>{
+
+            var radio = 0;
             request(app)
                 .get("/api/circ")
                 .set("accept","application/json")
@@ -338,6 +439,66 @@ describe("GET triangulo",()=>
 
         }
     )
+    it("valor 0 1 ",(done )=>{
+
+            var base = 0;
+            var lado_i = 4;
+            var lado_d = 4;
+            request(app)
+                .get("/api/trian")
+                .set("accept","application/json")
+                .set("base",base)
+                .set("lado_derecho",lado_d)
+                .set("lado_izquierdo",lado_i)
+                .expect("Content-Type", /json/)
+                .expect({status:"wrong",data:"no se puede realizar el proceso,verifica los datos ingresados"})
+                .expect(404,done)
+
+
+
+
+        }
+    )
+    it("valor 0 2 ",(done )=>{
+
+            var base = 5;
+            var lado_i = 0;
+            var lado_d = 4;
+            request(app)
+                .get("/api/trian")
+                .set("accept","application/json")
+                .set("base",base)
+                .set("lado_derecho",lado_d)
+                .set("lado_izquierdo",lado_i)
+                .expect("Content-Type", /json/)
+                .expect({status:"wrong",data:"no se puede realizar el proceso,verifica los datos ingresados"})
+                .expect(404,done)
+
+
+
+
+        }
+    )
+    it("valor 0 3 ",(done )=>{
+
+            var base = 5;
+            var lado_i = 4;
+            var lado_d = 0;
+            request(app)
+                .get("/api/trian")
+                .set("accept","application/json")
+                .set("base",base)
+                .set("lado_derecho",lado_d)
+                .set("lado_izquierdo",lado_i)
+                .expect("Content-Type", /json/)
+                .expect({status:"wrong",data:"no se puede realizar el proceso,verifica los datos ingresados"})
+                .expect(404,done)
+
+
+
+
+        }
+    )
     it("datos negativos - dato postivo ",(done )=> {
 
         var base = 5;
@@ -373,6 +534,51 @@ describe("GET triangulo",()=>
         var base = -5;
         var lado_i = -4;
         var lado_d = 4;
+        request(app)
+            .get("/api/trian")
+            .set("accept", "application/json")
+            .set("base", base)
+            .set("lado_derecho", lado_d)
+            .set("lado_izquierdo", lado_i)
+            .expect("Content-Type", /json/)
+            .expect({status: "wrong", data: "no se puede realizar el proceso,verifica los datos ingresados"})
+            .expect(404, done)
+    })
+    it("datos correctos- dato no numerico ",(done )=> {
+
+        var base = "j";
+        var lado_i = 4;
+        var lado_d = 4;
+        request(app)
+            .get("/api/trian")
+            .set("accept", "application/json")
+            .set("base", base)
+            .set("lado_derecho", lado_d)
+            .set("lado_izquierdo", lado_i)
+            .expect("Content-Type", /json/)
+            .expect({status: "wrong", data: "no se puede realizar el proceso,verifica los datos ingresados"})
+            .expect(404, done)
+    })
+    it("datos correctos- dato no numerico2 ",(done )=> {
+
+        var base = 5;
+        var lado_i = "j";
+        var lado_d = 4;
+        request(app)
+            .get("/api/trian")
+            .set("accept", "application/json")
+            .set("base", base)
+            .set("lado_derecho", lado_d)
+            .set("lado_izquierdo", lado_i)
+            .expect("Content-Type", /json/)
+            .expect({status: "wrong", data: "no se puede realizar el proceso,verifica los datos ingresados"})
+            .expect(404, done)
+    })
+    it("datos correctos- dato no numerico3 ",(done )=> {
+
+        var base = 5;
+        var lado_i = 4;
+        var lado_d = "j";
         request(app)
             .get("/api/trian")
             .set("accept", "application/json")
